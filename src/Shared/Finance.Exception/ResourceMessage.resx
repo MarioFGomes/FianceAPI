@@ -117,7 +117,37 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AccountCreated" xml:space="preserve">
+    <value>Your account has been created successfully</value>
+  </data>
+  <data name="EmailInvalid" xml:space="preserve">
+    <value>The email provided is invalid</value>
+  </data>
+  <data name="EmailMaximumcharacters" xml:space="preserve">
+    <value>The email must have a maximum of 150 characters</value>
+  </data>
+  <data name="EmptyEmail" xml:space="preserve">
+    <value>Email cannot be empty</value>
+  </data>
   <data name="InternalServerError" xml:space="preserve">
     <value>The server encountered an internal error or misconfiguration and was unable to complete your request.</value>
+  </data>
+  <data name="InvalidLogin" xml:space="preserve">
+    <value>The username or password is invalid</value>
+  </data>
+  <data name="LoginSuccess" xml:space="preserve">
+    <value>Login successful</value>
+  </data>
+  <data name="NameEmpty" xml:space="preserve">
+    <value>Name cannot be empty</value>
+  </data>
+  <data name="PasswordEmpty" xml:space="preserve">
+    <value>Password cannot be empty</value>
+  </data>
+  <data name="PasswordInvalid" xml:space="preserve">
+    <value>The password provided is invalid</value>
+  </data>
+  <data name="UserAlreadyExists" xml:space="preserve">
+    <value>There is already a user with this email</value>
   </data>
 </root>

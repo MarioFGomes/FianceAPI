@@ -22,7 +22,7 @@ namespace Finance.Exception {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class ResourceMessage {
+    public class ResourceMessage {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Finance.Exception {
         ///   Retorna a instância de ResourceManager armazenada em cache usada por essa classe.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Finance.Exception.ResourceMessage", typeof(ResourceMessage).Assembly);
@@ -51,7 +51,7 @@ namespace Finance.Exception {
         ///   pesquisas de recursos que usam essa classe de recurso de tipo de alta segurança.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -61,11 +61,101 @@ namespace Finance.Exception {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Your account has been created successfully.
+        /// </summary>
+        public static string AccountCreated {
+            get {
+                return ResourceManager.GetString("AccountCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The email provided is invalid.
+        /// </summary>
+        public static string EmailInvalid {
+            get {
+                return ResourceManager.GetString("EmailInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The email must have a maximum of 150 characters.
+        /// </summary>
+        public static string EmailMaximumcharacters {
+            get {
+                return ResourceManager.GetString("EmailMaximumcharacters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Email cannot be empty.
+        /// </summary>
+        public static string EmptyEmail {
+            get {
+                return ResourceManager.GetString("EmptyEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The server encountered an internal error or misconfiguration and was unable to complete your request..
         /// </summary>
-        internal static string InternalServerError {
+        public static string InternalServerError {
             get {
                 return ResourceManager.GetString("InternalServerError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The username or password is invalid.
+        /// </summary>
+        public static string InvalidLogin {
+            get {
+                return ResourceManager.GetString("InvalidLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Login successful.
+        /// </summary>
+        public static string LoginSuccess {
+            get {
+                return ResourceManager.GetString("LoginSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Name cannot be empty.
+        /// </summary>
+        public static string NameEmpty {
+            get {
+                return ResourceManager.GetString("NameEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Password cannot be empty.
+        /// </summary>
+        public static string PasswordEmpty {
+            get {
+                return ResourceManager.GetString("PasswordEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The password provided is invalid.
+        /// </summary>
+        public static string PasswordInvalid {
+            get {
+                return ResourceManager.GetString("PasswordInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a There is already a user with this email.
+        /// </summary>
+        public static string UserAlreadyExists {
+            get {
+                return ResourceManager.GetString("UserAlreadyExists", resourceCulture);
             }
         }
     }

@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 namespace Finance.Domain.Entities; 
 public class Wallet: BaseEntity {
     public Guid UserId { get; set; }
+    public virtual User User { get; set; }
     public decimal Balance {get;set; }
     public WalletStatus WalletStatus { get; set; } = WalletStatus.Enabled;
 }
