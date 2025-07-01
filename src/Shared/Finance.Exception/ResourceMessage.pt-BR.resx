@@ -117,7 +117,37 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AccountCreated" xml:space="preserve">
+    <value>Sua conta foi criada com sucesso</value>
+  </data>
+  <data name="EmailInvalid" xml:space="preserve">
+    <value>O Email fornecido é invalido</value>
+  </data>
+  <data name="EmailMaximumcharacters" xml:space="preserve">
+    <value>O e-mail deve ter no máximo 150 caracteres</value>
+  </data>
+  <data name="Empty email" xml:space="preserve">
+    <value>Email não pode estar em branco</value>
+  </data>
   <data name="InternalServerError" xml:space="preserve">
     <value>O servidor encontrou um erro interno ou uma configuração incorreta e não conseguiu concluir sua solicitação.</value>
+  </data>
+  <data name="InvalidLogin" xml:space="preserve">
+    <value>O nome do usuario ou a palavra passe é invalida</value>
+  </data>
+  <data name="LoginSuccess" xml:space="preserve">
+    <value>Login efetuado com sucesso</value>
+  </data>
+  <data name="NameEmpty" xml:space="preserve">
+    <value>O nome não pode ser vazio</value>
+  </data>
+  <data name="PasswordEmpty" xml:space="preserve">
+    <value>A palavra passe não pode ser vazio</value>
+  </data>
+  <data name="PasswordInvalid" xml:space="preserve">
+    <value>A palavra passe fornecida é invalida</value>
+  </data>
+  <data name="UserAlreadyExists" xml:space="preserve">
+    <value>Já existe um utilizador com este email</value>
   </data>
 </root>

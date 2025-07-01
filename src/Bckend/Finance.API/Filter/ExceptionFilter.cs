@@ -1,4 +1,5 @@
 ﻿using Finance.Communication.Response;
+using Finance.Exception;
 using Finance.Exception.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
@@ -13,20 +14,21 @@ public class ExceptionFilter : IExceptionFilter {
         _exceptionHandlers = new Dictionary<Type, Action<ExceptionContext>>
         {
                 { typeof(ExceptionValidatorError), context => HandleException<ExceptionValidatorError>(context) },
-                { typeof(ResourceNotFoundException), context => HandleException<ResourceNotFoundException>(context) }
+                { typeof(ResourceNotFoundException), context => HandleException<ResourceNotFoundException>(context) },
+                { typeof(UserAlreadyExistsException), context => HandleException<UserAlreadyExistsException>(context) }
         };
     }
     public void OnException(ExceptionContext context) {
         if (context.Exception is FinanceException) {
 
-            HandleEventTicketExcpetion(context);
+            HandleFinanceExcpetion(context);
 
         } else {
             ThrowUnknowError(context);
         }
     }
 
-    private void HandleEventTicketExcpetion(ExceptionContext context) {
+    private void HandleFinanceExcpetion(ExceptionContext context) {
 
         var exceptionType = context.Exception.GetType();
 

@@ -1,6 +1,9 @@
 
 using Finance.API.Filter;
 using Finance.API.Middleware;
+using Finance.CrossCutting.Repository;
+using Finance.CrossCutting.Services;
+using Finance.CrossCutting.UseCase;
 
 namespace Finance.API {
     public class Program {
@@ -14,6 +17,8 @@ namespace Finance.API {
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddRepository(builder.Configuration);
+            builder.Services.AddAplicationService(builder.Configuration);
+            builder.Services.AddAplicationUseCase();
             builder.Services.AddMvc(options => options.Filters.Add(typeof(ExceptionFilter)));
 
             var app = builder.Build();
