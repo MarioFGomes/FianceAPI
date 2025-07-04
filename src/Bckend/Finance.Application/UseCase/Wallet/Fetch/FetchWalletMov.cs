@@ -3,7 +3,7 @@ using Finance.Communication.Request;
 using Finance.Communication.Response;
 using Finance.Domain.Repositories;
 using Finance.Exception.Exceptions;
-
+using InvalidOperationException = Finance.Exception.Exceptions.InvalidOperationException;
 
 namespace Finance.Application.UseCase.Wallet.Fetch;
 public class FetchWalletMov : IFetchWalletMov {
@@ -20,8 +20,8 @@ public class FetchWalletMov : IFetchWalletMov {
 
         var query= _WalletMovementRepository.GetQueryable();
         
-        var wallet=await _walletRepository.GetOneAsync(e=>e.UserId==UserId);
-
+        var wallet=await _walletRepository.GetOneAsync(e=>e.UserId==UserId && e.currency== request.currency);
+        if (wallet is null) throw new InvalidOperationException("A Wallet não foi encontrada");
         var startDateUtc = DateTime.SpecifyKind(request.StartDate.Date, DateTimeKind.Utc);
         var endDateUtcExclusive = DateTime.SpecifyKind(request.EndDate.Date.AddDays(1), DateTimeKind.Utc);
 
