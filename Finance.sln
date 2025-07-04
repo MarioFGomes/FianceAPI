@@ -11,19 +11,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{3694
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{B5A7B83A-A594-4B3F-8634-E83EE093F720}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finance.Infrastructure", "src\Bckend\Finance.Infrastructure\Finance.Infrastructure.csproj", "{66018259-7CBB-4E37-8778-76EC555C0F63}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Finance.Infrastructure", "src\Bckend\Finance.Infrastructure\Finance.Infrastructure.csproj", "{66018259-7CBB-4E37-8778-76EC555C0F63}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finance.Domain", "src\Bckend\Finance.Domain\Finance.Domain.csproj", "{E8040B56-27E7-4FDB-981B-643EBA4970C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Finance.Domain", "src\Bckend\Finance.Domain\Finance.Domain.csproj", "{E8040B56-27E7-4FDB-981B-643EBA4970C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finance.CrossCutting", "src\Bckend\Finance.CrossCutting\Finance.CrossCutting.csproj", "{AE9515FC-DF2D-4439-860F-0CB4A29F9A92}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Finance.CrossCutting", "src\Bckend\Finance.CrossCutting\Finance.CrossCutting.csproj", "{AE9515FC-DF2D-4439-860F-0CB4A29F9A92}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finance.Application", "src\Bckend\Finance.Application\Finance.Application.csproj", "{A6E0382A-8751-4AEC-BCB2-7CF624991DED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Finance.Application", "src\Bckend\Finance.Application\Finance.Application.csproj", "{A6E0382A-8751-4AEC-BCB2-7CF624991DED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finance.API", "src\Bckend\Finance.API\Finance.API.csproj", "{A996050D-DFDB-4920-9F47-48B254D1D44E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Finance.API", "src\Bckend\Finance.API\Finance.API.csproj", "{A996050D-DFDB-4920-9F47-48B254D1D44E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finance.Communication", "src\Shared\Finance.Communication\Finance.Communication.csproj", "{E734E086-85C4-496B-959B-EAEE4FA7DC97}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Finance.Communication", "src\Shared\Finance.Communication\Finance.Communication.csproj", "{E734E086-85C4-496B-959B-EAEE4FA7DC97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finance.Exception", "src\Shared\Finance.Exception\Finance.Exception.csproj", "{869E6E3E-810D-4BCA-A6C8-5897C136E818}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Finance.Exception", "src\Shared\Finance.Exception\Finance.Exception.csproj", "{869E6E3E-810D-4BCA-A6C8-5897C136E818}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finance.Domain.Test", "test\Finance.Domain.Test\Finance.Domain.Test.csproj", "{EE36F978-1107-4058-9FE7-D3FE3F17320A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +61,10 @@ Global
 		{869E6E3E-810D-4BCA-A6C8-5897C136E818}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{869E6E3E-810D-4BCA-A6C8-5897C136E818}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{869E6E3E-810D-4BCA-A6C8-5897C136E818}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE36F978-1107-4058-9FE7-D3FE3F17320A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE36F978-1107-4058-9FE7-D3FE3F17320A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE36F978-1107-4058-9FE7-D3FE3F17320A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE36F978-1107-4058-9FE7-D3FE3F17320A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,6 +79,7 @@ Global
 		{A996050D-DFDB-4920-9F47-48B254D1D44E} = {3694FAF5-BAB7-4E9A-94D7-36B757C1C913}
 		{E734E086-85C4-496B-959B-EAEE4FA7DC97} = {B5A7B83A-A594-4B3F-8634-E83EE093F720}
 		{869E6E3E-810D-4BCA-A6C8-5897C136E818} = {B5A7B83A-A594-4B3F-8634-E83EE093F720}
+		{EE36F978-1107-4058-9FE7-D3FE3F17320A} = {A7FD12D3-FB57-4C5C-BB55-3D38A756FB2F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C94D8E42-C3B4-4D55-AE3F-25780D486BB6}
