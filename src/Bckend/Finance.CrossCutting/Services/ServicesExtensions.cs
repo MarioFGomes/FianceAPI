@@ -1,5 +1,8 @@
-﻿using Finance.Application.Service.Cryptography;
+﻿using Finance.Application.Interfaces;
+using Finance.Application.Service.Cryptography;
 using Finance.Domain.Security.Token;
+using Finance.Domain.Shared;
+using Finance.Infrastructure.Events;
 using Finance.Infrastructure.Security.Token.Access;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,6 +13,7 @@ public static class ServicesExtensions {
     public static void AddAplicationService(this IServiceCollection services, IConfiguration configurationManager) {
         AddAdditionalKeyPassword(services, configurationManager);
         AdicionarTokenJwt(services, configurationManager);
+        AddSubDomainEvents(services);
     }
 
 
@@ -30,5 +34,16 @@ public static class ServicesExtensions {
 
             return new JwtTokenGenerator(Convert.ToUInt16(setionTime), setionKey);
         });
+    }
+
+    private static void AddSubDomainEvents(this IServiceCollection services) {
+        
+        services.AddScoped<IDomainEventDispatcher, DomainEventDispatcher>();
+
+        services.Scan(scan => scan
+                .FromAssemblies(AppDomain.CurrentDomain.GetAssemblies())
+                .AddClasses(classes => classes.AssignableTo(typeof(IDomainEventHandler<>)))
+                .AsImplementedInterfaces()
+                .WithScopedLifetime());
     }
 }
