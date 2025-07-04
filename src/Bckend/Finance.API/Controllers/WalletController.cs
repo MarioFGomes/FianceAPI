@@ -1,13 +1,15 @@
 ﻿using Finance.API.Filter;
 using Finance.Application.UseCase.Transaction.Create;
+using Finance.Application.UseCase.Wallet.CheckBalance;
 using Finance.Application.UseCase.Wallet.Create;
 using Finance.Application.UseCase.Wallet.Credite;
 using Finance.Application.UseCase.Wallet.Debit;
+using Finance.Application.UseCase.Wallet.Disabled;
+using Finance.Application.UseCase.Wallet.Enabled;
 using Finance.Application.UseCase.Wallet.Fetch;
 using Finance.Communication.Request;
 using Finance.Communication.Response;
 using Finance.Domain.Entities;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Finance.API.Controllers;
@@ -76,6 +78,7 @@ public class WalletController: FinanceController {
     [ServiceFilter(typeof(AuthenticatedUser))]
     public async Task<IActionResult> Movements(
         [FromServices] IFetchWalletMov useCase,
+        [FromQuery] string currency,
         [FromQuery] DateTime startDate,
         [FromQuery] DateTime endDate,
         [FromQuery] int page = 1,
@@ -86,6 +89,7 @@ public class WalletController: FinanceController {
         if (user is null) return Unauthorized();
 
         var request = new WalletMovQueryRequest {
+            currency=currency,
             StartDate = startDate,
             EndDate = endDate,
             Page = page,
@@ -93,5 +97,45 @@ public class WalletController: FinanceController {
         };
         var result = await useCase.Execute(request,user.Id);
         return Ok(result);
+    }
+
+    [HttpGet("CheckBalance")]
+    [ProducesResponseType(typeof(WalletResponse), StatusCodes.Status200OK)]
+    [ServiceFilter(typeof(AuthenticatedUser))]
+    public async Task<IActionResult> CheckBalance([FromServices] ICheckBalance useCase, [FromQuery] string currency) {
+
+        var user = HttpContext.Items["User"] as User;
+
+        if (user is null) return Unauthorized();
+
+        var result = await useCase.Execute(user.Id, currency);
+
+        return Ok(new { result.Success, result.Message, data=new { result.Data.Balance,result.Data.currency} });
+    }
+
+    [HttpPut("Disabled")]
+    [ServiceFilter(typeof(AuthenticatedUser))]
+    public async Task<IActionResult> Disabled([FromServices] IDisabledWallet useCase, [FromQuery] string currency) {
+
+        var user = HttpContext.Items["User"] as User;
+
+        if (user is null) return Unauthorized();
+
+        var result = await useCase.Execute(user.Id,currency);
+
+        return NoContent();
+    }
+
+    [HttpPut("Enabled")]
+    [ServiceFilter(typeof(AuthenticatedUser))]
+    public async Task<IActionResult> Enabled([FromServices] IEnableddWallet useCase, [FromQuery] string currency) {
+
+        var user = HttpContext.Items["User"] as User;
+
+        if (user is null) return Unauthorized();
+
+        var result = await useCase.Execute(user.Id,currency);
+
+        return NoContent();
     }
 }
