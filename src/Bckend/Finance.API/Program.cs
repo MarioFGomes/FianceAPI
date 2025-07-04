@@ -4,6 +4,7 @@ using Finance.API.Middleware;
 using Finance.CrossCutting.Repository;
 using Finance.CrossCutting.Services;
 using Finance.CrossCutting.UseCase;
+using Microsoft.OpenApi.Models;
 
 namespace Finance.API {
     public class Program {
@@ -20,6 +21,37 @@ namespace Finance.API {
             builder.Services.AddAplicationService(builder.Configuration);
             builder.Services.AddAplicationUseCase();
             builder.Services.AddMvc(options => options.Filters.Add(typeof(ExceptionFilter)));
+            builder.Services.AddScoped<AuthenticatedUser>();
+
+            builder.Services.AddSwaggerGen(options => {
+                options.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme {
+                    Description = @"JWT Authorization header using the Bearer scheme.
+                                Entre 'Bearer' [space] and then your token in the text input below.
+                                Example: 'Bearer 12345abcdef",
+                    Name = "Authorization",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.ApiKey,
+                    Scheme = "Bearer"
+                });
+
+                options.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference=new OpenApiReference
+                            {
+                                Type=ReferenceType.SecurityScheme,
+                                Id="Bearer"
+                            },
+                            Scheme="oauth2",
+                            Name="Bearer",
+                            In=ParameterLocation.Header
+                        },
+                        new List<string>()
+                    }
+                });
+            });
 
             var app = builder.Build();
 
