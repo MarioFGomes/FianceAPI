@@ -4,6 +4,7 @@ using Finance.Exception.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System.Net;
+using InvalidOperationException = Finance.Exception.Exceptions.InvalidOperationException;
 
 namespace Finance.API.Filter;
 public class ExceptionFilter : IExceptionFilter {
@@ -15,7 +16,9 @@ public class ExceptionFilter : IExceptionFilter {
         {
                 { typeof(ExceptionValidatorError), context => HandleException<ExceptionValidatorError>(context) },
                 { typeof(ResourceNotFoundException), context => HandleException<ResourceNotFoundException>(context) },
-                { typeof(UserAlreadyExistsException), context => HandleException<UserAlreadyExistsException>(context) }
+                { typeof(ResourceAlreadyExistsException), context => HandleException<ResourceAlreadyExistsException>(context) },
+                { typeof(InvalidOperationException), context => HandleException<InvalidOperationException>(context) },
+                { typeof(BusinessException), context => HandleException<BusinessException>(context) }
         };
     }
     public void OnException(ExceptionContext context) {

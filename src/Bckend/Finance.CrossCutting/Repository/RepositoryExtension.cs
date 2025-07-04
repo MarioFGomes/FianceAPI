@@ -15,7 +15,7 @@ public static class RepositoryExtension {
         services.AddScoped<IUserRepository, UserRepository>()
                 .AddScoped<IWalletRepository, WalletRepository>()
                 .AddScoped<ITransactionRepository, TransactionRepository>()
-                .AddScoped<IWalletMovement, WalletMovementRepository>();
+                .AddScoped<IWalletMovementRepository, WalletMovementRepository>();
 
 
     }

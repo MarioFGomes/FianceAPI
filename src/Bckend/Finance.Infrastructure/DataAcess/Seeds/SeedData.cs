@@ -30,14 +30,16 @@ public class SeedData {
         var wallet1 = new Wallet { 
             Id = Guid.NewGuid(), 
             UserId = user1.Id, 
-            Balance = 500m, 
+            Balance = 500m,
+            currency= "BRL",
             CreatedAt = DateTime.UtcNow, 
             UpdatedAt = DateTime.UtcNow 
         };
         var wallet2 = new Wallet { 
             Id = Guid.NewGuid(), 
             UserId = user2.Id, 
-            Balance = 1000m, 
+            Balance = 1000m,
+            currency = "BRL",
             CreatedAt = DateTime.UtcNow, 
             UpdatedAt = DateTime.UtcNow 
         };
@@ -62,6 +64,7 @@ public class SeedData {
             WalletId = wallet1.Id,
             MovimentType = MovimentType.DEBIT,
             Amount = 200m,
+            currency = "BRL",
             TransactionId = transaction.Id,
             Description = "Transferência para Maria",
             CreatedAt = DateTime.UtcNow
@@ -72,6 +75,7 @@ public class SeedData {
             WalletId = wallet2.Id,
             MovimentType = MovimentType.CREDIT,
             Amount = 200m,
+            currency = "BRL",
             TransactionId = transaction.Id,
             Description = "Recebido de João",
             CreatedAt = DateTime.UtcNow

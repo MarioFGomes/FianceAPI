@@ -25,11 +25,11 @@ public class SingUpUseCase : ISingUpUseCase {
        
         var userExists = await _userRepository.AnyAsync(e=>e.Email==request.Email);
         
-        if (userExists) throw new UserAlreadyExistsException(ResourceMessage.UserAlreadyExists);
+        if (userExists) throw new ResourceAlreadyExistsException(ResourceMessage.UserAlreadyExists);
         
         request.Password = _PasswordEncryptor.Encrypt(request.Password);
 
-        var user= request.ToUserDomin();
+        var user= request.ToUserDomain();
          
        await _userRepository.AddOneAsync(user);
        

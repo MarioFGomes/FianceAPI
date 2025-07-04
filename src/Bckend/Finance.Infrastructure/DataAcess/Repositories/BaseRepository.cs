@@ -3,24 +3,41 @@ using Finance.Domain.Enum;
 using Finance.Domain.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
+using Microsoft.Extensions.Logging;
 
 namespace Finance.Infrastructure.DataAcess.Repositories; 
 public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : BaseEntity 
 {
     private readonly DbContext _context;
     private readonly DbSet<TEntity> _dbSet;
+    private readonly ILogger<BaseRepository<TEntity>> _logger;
 
-    public BaseRepository(DbContext context) {
+    public BaseRepository(DbContext context, ILogger<BaseRepository<TEntity>> logger) {
         _context = context;
         _dbSet = _context.Set<TEntity>();
+        _logger = logger;
     }
 
     public async Task AddOneAsync(TEntity entity) {
-        
         await _dbSet.AddAsync(entity);
+        try {
+            await _context.SaveChangesAsync();
+            _logger.LogInformation($"Entidade {typeof(TEntity).Name} salva com sucesso. Id: {entity.Id}");
+        } catch (System.Exception ex) {
+            _logger.LogError(ex, $"Erro ao salvar entidade {typeof(TEntity).Name}.");
+            throw;
+        }
+    }
 
-        await _context.SaveChangesAsync();
-       
+    public async Task AddManyAsync(List<TEntity> entity) {
+        await _dbSet.AddRangeAsync(entity);
+        try {
+            await _context.SaveChangesAsync();
+            //_logger.LogInformation($"Entidade {typeof(TEntity).Name} salva com sucesso. Id: {typeof(TEntity).Id}");
+        } catch (System.Exception ex) {
+            _logger.LogError(ex, $"Erro ao salvar entidade {typeof(TEntity).Name}.");
+            throw;
+        }
     }
 
     public async Task DeleteAsync(Expression<Func<TEntity, bool>> filterExpression) {
@@ -35,6 +52,7 @@ public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : 
                 _dbSet.Update(entity);
             }
         }
+        await _context.SaveChangesAsync();
     }
 
     public async Task DeleteAsync(Guid id) {
@@ -48,25 +66,45 @@ public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : 
             _dbSet.Update(entity);
 
         }
+        await _context.SaveChangesAsync();
     }
 
     public async Task ReplaceOneAsync(Expression<Func<TEntity, bool>> filterExpression, TEntity entity) {
         var existingEntity = await _dbSet.FirstOrDefaultAsync(filterExpression);
         if (existingEntity != null) {
+            existingEntity.UpdatedAt = DateTime.UtcNow;
             _context.Entry(existingEntity).CurrentValues.SetValues(entity);
+           
         }
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task ReplaceManyAsync(List<TEntity> entities, Func<TEntity, object> keySelector) {
+        var keys = entities.Select(keySelector).ToList();
+        var existingEntities = await _dbSet.Where(e => keys.Contains(keySelector(e))).ToListAsync();
+
+        foreach (var entity in entities) {
+            var key = keySelector(entity);
+            var existing = existingEntities.FirstOrDefault(e => keySelector(e).Equals(key));
+
+            if (existing != null) {
+                _context.Entry(existing).CurrentValues.SetValues(entity);
+            }
+        }
+
+        await _context.SaveChangesAsync();
     }
 
     public async Task<TEntity> GetOneAsync(Expression<Func<TEntity, bool>> filterExpression) {
-        return await _dbSet.AsNoTracking().FirstOrDefaultAsync(filterExpression);
+        return await _dbSet.FirstOrDefaultAsync(filterExpression);
     }
 
     public async Task<TEntity> GetOneIncludingInactiveAsync(Expression<Func<TEntity, bool>> filterExpression) {
-        return await _dbSet.IgnoreQueryFilters().AsNoTracking().FirstOrDefaultAsync(filterExpression);
+        return await _dbSet.IgnoreQueryFilters().FirstOrDefaultAsync(filterExpression);
     }
 
     public async Task<IEnumerable<TEntity>> GetAllAsync(int page = 1, int pageSize = 10) {
-        return await _dbSet.AsNoTracking()
+        return await _dbSet
             .Skip((page - 1) * pageSize)
             .Take(pageSize)
             .ToListAsync();
@@ -94,5 +132,20 @@ public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : 
 
     public async Task<bool> AnyAsync(Expression<Func<TEntity, bool>> filterExpression) {
         return await _dbSet.AnyAsync(filterExpression);
+    }
+
+    public void BeginTransaction() {
+        if(_context.Database.CurrentTransaction is null)
+            _context.Database.BeginTransaction();
+    }
+
+    public void CommitTransaction() {
+        if (_context.Database.CurrentTransaction is not null)
+            _context.Database.CommitTransaction();
+    }
+
+    public void RollbackTransaction() {
+        if (_context.Database.CurrentTransaction is not null)
+            _context.Database.RollbackTransaction();
     }
 }

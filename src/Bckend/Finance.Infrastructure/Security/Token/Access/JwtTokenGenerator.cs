@@ -32,5 +32,39 @@ public class JwtTokenGenerator : IAccessTokenGenerator {
         var bytes = Encoding.UTF8.GetBytes(_siginKey);
         return new SymmetricSecurityKey(bytes);
     }
+
+
+    public ClaimsPrincipal? ValidateToken(string token) {
+       
+        var tokenHandler = new JwtSecurityTokenHandler();
+
+        var validationParameters = new TokenValidationParameters {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = SecurityKey(),
+            ValidateIssuer = false, 
+            ValidateAudience = false, 
+            ValidateLifetime = true,
+            ClockSkew = TimeSpan.Zero
+        };
+
+        try {
+            var principal = tokenHandler.ValidateToken(token, validationParameters, out SecurityToken validatedToken);
+
+            
+            if (validatedToken is JwtSecurityToken jwtToken &&
+                jwtToken.Header.Alg.Equals(SecurityAlgorithms.HmacSha256, StringComparison.InvariantCultureIgnoreCase)) {
+                return principal;
+            }
+            return null;
+
+        } catch {
+            return null; 
+        }
+    }
+
+    public string? GetUserIdFromToken(string token) {
+        var principal = ValidateToken(token);
+        return principal?.FindFirst(ClaimTypes.Sid)?.Value;
+    }
 }
 

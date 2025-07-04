@@ -129,6 +129,9 @@
   <data name="Empty email" xml:space="preserve">
     <value>Email não pode estar em branco</value>
   </data>
+  <data name="ExpiredToken" xml:space="preserve">
+    <value>O token informado se encontra expirado</value>
+  </data>
   <data name="InternalServerError" xml:space="preserve">
     <value>O servidor encontrou um erro interno ou uma configuração incorreta e não conseguiu concluir sua solicitação.</value>
   </data>
@@ -147,7 +150,25 @@
   <data name="PasswordInvalid" xml:space="preserve">
     <value>A palavra passe fornecida é invalida</value>
   </data>
+  <data name="SuccessfullyAddedValue" xml:space="preserve">
+    <value>Valor adicionado na conta com sucesso</value>
+  </data>
+  <data name="TransferCompleted" xml:space="preserve">
+    <value>Transferência realizada com sucesso</value>
+  </data>
   <data name="UserAlreadyExists" xml:space="preserve">
     <value>Já existe um utilizador com este email</value>
+  </data>
+  <data name="UserWithoutPermission" xml:space="preserve">
+    <value>Usuário Sem Permissão</value>
+  </data>
+  <data name="WalletAlreadyExists" xml:space="preserve">
+    <value>Você já tem uma conta com está moeda</value>
+  </data>
+  <data name="WalletCreated" xml:space="preserve">
+    <value>Carteira criada com sucesso</value>
+  </data>
+  <data name="WithdrawalSuccessful" xml:space="preserve">
+    <value>Saque realizado com sucesso</value>
   </data>
 </root>
