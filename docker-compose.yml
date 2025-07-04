@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  db:
+    image: bitnami/postgresql:latest
+    container_name: PostgresSQL
+    environment:
+      - POSTGRESQL_USERNAME=mariogomes
+      - POSTGRESQL_PASSWORD=1qaz2wsx
+      - POSTGRESQL_DATABASE=finance
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/bitnami/postgresql
+
+  api:
+    build:
+      context: ./src/Bckend/Finance.API
+    container_name: finance_api
+    depends_on:
+      - db
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=db;Port=5432;Database=finance;Username=mariogomes;Password=1qaz2wsx
+    ports:
+      - "5000:80"
+    # Ajuste a porta conforme o Dockerfile expõe
+
+volumes:
+  db_data: 
