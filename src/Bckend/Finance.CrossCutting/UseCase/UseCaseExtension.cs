@@ -2,9 +2,12 @@
 using Finance.Application.UseCase.Auth.SingUp;
 using Finance.Application.UseCase.Transaction.Create;
 using Finance.Application.UseCase.User.FetchUser;
+using Finance.Application.UseCase.Wallet.CheckBalance;
 using Finance.Application.UseCase.Wallet.Create;
 using Finance.Application.UseCase.Wallet.Credite;
 using Finance.Application.UseCase.Wallet.Debit;
+using Finance.Application.UseCase.Wallet.Disabled;
+using Finance.Application.UseCase.Wallet.Enabled;
 using Finance.Application.UseCase.Wallet.Fetch;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -22,7 +25,10 @@ public static class UseCaseExtension {
                 .AddScoped<IDebitUseCase, DebitUseCase>()
                 .AddScoped<ICreateTransitionUseCase, CreateTransitionUseCase>()
                 .AddScoped<IFecthUserUseCase, FecthUserUseCase>()
-                .AddScoped<IFetchWalletMov, FetchWalletMov>();
+                .AddScoped<IFetchWalletMov, FetchWalletMov>()
+                .AddScoped<ICheckBalance, CheckBalance>()
+                .AddScoped<IDisabledWallet, DisabledWallet>()
+                .AddScoped<IEnableddWallet, EnableddWallet>();
 
 
     }
