@@ -7,5 +7,5 @@ using System.Threading.Tasks;
 
 namespace Finance.Application.UseCase.User.FetchUser; 
 public interface IFecthUserUseCase {
-    Task<UserResponse> Execute(string search);
+    Task<ApiResponse<UserResponse>> Execute(string search);
 }
