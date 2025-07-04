@@ -14,4 +14,11 @@ public class ResponseErrorJson {
         Errors = errors;
         StatusCode = statusCode;
     }
+
+    public ResponseErrorJson(string messagem) {
+        Errors = new List<string>
+        {
+            messagem
+        };
+    }
 }
