@@ -97,6 +97,15 @@ namespace Finance.Exception {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The token provided has expired.
+        /// </summary>
+        public static string ExpiredToken {
+            get {
+                return ResourceManager.GetString("ExpiredToken", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The server encountered an internal error or misconfiguration and was unable to complete your request..
         /// </summary>
         public static string InternalServerError {
@@ -151,11 +160,65 @@ namespace Finance.Exception {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Value added to account successfully.
+        /// </summary>
+        public static string SuccessfullyAddedValue {
+            get {
+                return ResourceManager.GetString("SuccessfullyAddedValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Transfer completed successfully.
+        /// </summary>
+        public static string TransferCompleted {
+            get {
+                return ResourceManager.GetString("TransferCompleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a There is already a user with this email.
         /// </summary>
         public static string UserAlreadyExists {
             get {
                 return ResourceManager.GetString("UserAlreadyExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a User Without Permission.
+        /// </summary>
+        public static string UserWithoutPermission {
+            get {
+                return ResourceManager.GetString("UserWithoutPermission", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a You already have an account with this currency.
+        /// </summary>
+        public static string WalletAlreadyExists {
+            get {
+                return ResourceManager.GetString("WalletAlreadyExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Wallet created successfully.
+        /// </summary>
+        public static string WalletCreated {
+            get {
+                return ResourceManager.GetString("WalletCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Withdrawal successful.
+        /// </summary>
+        public static string WithdrawalSuccessful {
+            get {
+                return ResourceManager.GetString("WithdrawalSuccessful", resourceCulture);
             }
         }
     }
