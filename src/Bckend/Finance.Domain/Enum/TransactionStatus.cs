@@ -1,7 +1,9 @@
 ﻿
 namespace Finance.Domain.Enum; 
 public enum TransactionStatus {
-    succeeded=2,
-    Pending = 2,
-    failed =3  
+    succeeded=1,
+    Ongoing=2,
+    Pending = 3,
+    canceled=4,
+    failed =5  
 }
