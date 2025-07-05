@@ -21,5 +21,15 @@
 **/obj
 **/secrets.dev.yaml
 **/values.dev.yaml
+**/*.db
+**/*.log
+**/*.db-journal
+**/*.db-trace
+**/*.db-wal
+**/*.db-shm
+**/*.db-lock
+**/*.db-trace
+**/*.db-wal
+**/*.db-shm
 LICENSE
 README.md
