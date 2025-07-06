@@ -23,6 +23,18 @@ namespace Finance.API {
             builder.Services.AddMvc(options => options.Filters.Add(typeof(ExceptionFilter)));
             builder.Services.AddScoped<AuthenticatedUser>();
 
+            // Adiciona CORS liberando para qualquer origem
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll",
+                    policy =>
+                    {
+                        policy.AllowAnyOrigin()
+                              .AllowAnyMethod()
+                              .AllowAnyHeader();
+                    });
+            });
+
             builder.Services.AddSwaggerGen(options => {
                 options.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme {
                     Description = @"JWT Authorization header using the Bearer scheme.
@@ -62,6 +74,9 @@ namespace Finance.API {
             }
 
             app.UseHttpsRedirection();
+
+            // Usa o CORS antes da autorização
+            app.UseCors("AllowAll");
 
             app.UseAuthorization();
             
