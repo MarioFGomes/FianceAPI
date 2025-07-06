@@ -13,7 +13,7 @@ public class FecthUserUseCase : IFecthUserUseCase {
     }
     public async Task<ApiResponse<UserResponse>> Execute(string search) {
         if(string.IsNullOrEmpty(search)) throw new InvalidOperationException("Operação Invalida");
-        var user=await _userRepository.GetOneAsync(e=>e.Id.Equals(Guid.Parse(search)) || e.Name.Contains(search) || e.Email.Equals(search));
+        var user=await _userRepository.GetOneAsync(e=>e.Name.Contains(search) || e.Email.Equals(search));
         if (user is null) throw new ResourceNotFoundException("Utilizador não encontrado");
         return new ApiResponse<UserResponse> { 
             Success = true,
