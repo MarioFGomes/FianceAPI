@@ -20,7 +20,7 @@ namespace Finance.API {
             builder.Services.AddRepository(builder.Configuration);
             builder.Services.AddAplicationService(builder.Configuration);
             builder.Services.AddAplicationUseCase();
-            //builder.Services.AddMvc(options => options.Filters.Add(typeof(ExceptionFilter)));
+            builder.Services.AddMvc(options => options.Filters.Add(typeof(ExceptionFilter)));
             builder.Services.AddScoped<AuthenticatedUser>();
 
             // Adiciona CORS liberando para qualquer origem
