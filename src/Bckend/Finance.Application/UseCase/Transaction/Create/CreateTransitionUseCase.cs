@@ -23,7 +23,7 @@ public class CreateTransitionUseCase : ICreateTransitionUseCase {
         try {
             var transition = request.ToTransactionDomain(UserId);
             var WalletSender = await _walletRepository.GetOneAsync(e => e.UserId == UserId && e.currency==request.currency);
-            var WalletReceiver = await _walletRepository.GetOneAsync(e => e.UserId == request.ReceiverWalletId && e.currency==request.currency);
+            var WalletReceiver = await _walletRepository.GetOneAsync(e => e.Id == request.ReceiverWalletId && e.currency==request.currency);
             if (WalletSender is null || WalletReceiver is null) throw new InvalidOperationException("Operação Invalida");
             transition.TransferTo(WalletSender, WalletReceiver, request.Amount);
             WalletSender.Debit(transition.Amount, transition.Description, request.currency,transition.Id);
@@ -37,7 +37,7 @@ public class CreateTransitionUseCase : ICreateTransitionUseCase {
             return new ApiResponse<TransactionResponse> {
                 Success = true,
                 Message = ResourceMessage.TransferCompleted,
-                Data = new TransactionResponse { ReceiverWalletId = transition.ReceiverWalletId, SenderWalletId = transition.SenderWalletId, Amount = transition.Amount, Description = transition.Description, CreatedAt = transition.CreatedAt }
+                Data = new TransactionResponse { ReceiverWalletId = transition.ReceiverWalletId, SenderWalletId = transition.SenderWalletId, Amount = transition.Amount, Description = transition.Description, CreatedAt = transition.CreatedAt,StatusTransaction=transition.StatusTransaction }
             };
         } catch {
             _transactionRepository.RollbackTransaction();
