@@ -49,9 +49,11 @@ public class AuthenticatedUser : AuthorizeAttribute, IAsyncAuthorizationFilter {
 
     private static void ExpiredToken(AuthorizationFilterContext context) {
         context.Result = new UnauthorizedObjectResult(new ResponseErrorJson(ResourceMessage.ExpiredToken));
+        context.HttpContext.Response.StatusCode = StatusCodes.Status401Unauthorized;
     }
 
     private static void UserUnauthorized(AuthorizationFilterContext context) {
         context.Result = new UnauthorizedObjectResult(new ResponseErrorJson(ResourceMessage.UserWithoutPermission));
+        context.HttpContext.Response.StatusCode = StatusCodes.Status401Unauthorized;
     }
 }
