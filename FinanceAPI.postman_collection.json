@@ -24,12 +24,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/api/Auth/SingUp",
-							"protocol": "http",
+							"raw": "https://fianceapi.onrender.com/api/Auth/SingUp",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"fianceapi",
+								"onrender",
+								"com"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"Auth",
@@ -54,12 +55,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/api/Auth/SingIn",
-							"protocol": "http",
+							"raw": "https://fianceapi.onrender.com/api/Auth/SingIn",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"fianceapi",
+								"onrender",
+								"com"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"Auth",
@@ -82,7 +84,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiI2M2E4MGE3MS04Zjg1LTQxMWMtYmM5Yi1hMDdhYTg4ZWZhOTkiLCJuYmYiOjE3NTE3OTk5NDYsImV4cCI6MTc1MTg4NjM0NiwiaWF0IjoxNzUxNzk5OTQ2fQ.z7AU_rVyfnEw4R4tpMmtoi9Qpe28GEINfT_aGjwtwcE",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiI0ZDE0MTQxNC1jNzFhLTQyOTQtODhmYi03OWUyYTVjNmE0ODQiLCJuYmYiOjE3NTE4MTI0MTMsImV4cCI6MTc1MTg5ODgxMywiaWF0IjoxNzUxODEyNDEzfQ.gJ6V9GuS-4Xcv1QMMTA4-LQ3IPTJWDG4JPRWg5dls-Y",
 									"type": "string"
 								}
 							]
@@ -90,12 +92,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/api/User/fetch?search=Mário",
-							"protocol": "http",
+							"raw": "https://fianceapi.onrender.com/api/User/fetch?search=Mário",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"fianceapi",
+								"onrender",
+								"com"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"User",
@@ -141,12 +144,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/api/Wallet/Create",
-							"protocol": "http",
+							"raw": "https://fianceapi.onrender.com/api/Wallet/Create",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"fianceapi",
+								"onrender",
+								"com"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"Wallet",
