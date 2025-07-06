@@ -1,0 +1,40 @@
+name: Build, Test and Publish Docker Image
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-test-docker:
+    name: Build, Test and Publish Docker Image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 7.0.x
+
+      - name: Restore dependencies
+        run: dotnet restore Finance.sln
+
+      - name: Build
+        run: dotnet build Finance.sln --configuration Release --no-restore
+
+      - name: Run tests
+        run: dotnet test Finance.sln --no-build --verbosity normal
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build Docker image
+        run: docker build -f src/Bckend/Finance.API/Dockerfile -t mariogomes333/financeapi:latest .
+
+      - name: Push Docker image
+        run: docker push mariogomes333/financeapi:latest 
