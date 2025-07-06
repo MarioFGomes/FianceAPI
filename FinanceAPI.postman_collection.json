@@ -1,0 +1,446 @@
+{
+	"info": {
+		"_postman_id": "545483a5-22f2-42fc-b3fe-74afcc9700bd",
+		"name": "FinanceAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18948524"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "SingUp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Mário Gomes\",\r\n  \"email\": \"marioferreiragomes333@gmail.com\",\r\n  \"password\": \"!qaz2wsxQAZ\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/Auth/SingUp",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"Auth",
+								"SingUp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SingIn",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"marioferreiragomes333@gmail.com\",\r\n  \"password\": \"!qaz2wsxQAZ\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/Auth/SingIn",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"Auth",
+								"SingIn"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Fetch User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiI2M2E4MGE3MS04Zjg1LTQxMWMtYmM5Yi1hMDdhYTg4ZWZhOTkiLCJuYmYiOjE3NTE3OTk5NDYsImV4cCI6MTc1MTg4NjM0NiwiaWF0IjoxNzUxNzk5OTQ2fQ.z7AU_rVyfnEw4R4tpMmtoi9Qpe28GEINfT_aGjwtwcE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/User/fetch?search=Mário",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"User",
+								"fetch"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "Mário"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Wallet",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiI2M2E4MGE3MS04Zjg1LTQxMWMtYmM5Yi1hMDdhYTg4ZWZhOTkiLCJuYmYiOjE3NTE3OTk5NDYsImV4cCI6MTc1MTg4NjM0NiwiaWF0IjoxNzUxNzk5OTQ2fQ.z7AU_rVyfnEw4R4tpMmtoi9Qpe28GEINfT_aGjwtwcE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"balance\": 0,\r\n  \"currency\": \"BRL\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/Wallet/Create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"Wallet",
+								"Create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deposit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiI2M2E4MGE3MS04Zjg1LTQxMWMtYmM5Yi1hMDdhYTg4ZWZhOTkiLCJuYmYiOjE3NTE3OTk5NDYsImV4cCI6MTc1MTg4NjM0NiwiaWF0IjoxNzUxNzk5OTQ2fQ.z7AU_rVyfnEw4R4tpMmtoi9Qpe28GEINfT_aGjwtwcE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"amount\": 20000,\r\n  \"description\": \"Deposito inicial\",\r\n  \"currency\": \"BRL\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/Wallet/deposit",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"Wallet",
+								"deposit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Withdraw",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiI2M2E4MGE3MS04Zjg1LTQxMWMtYmM5Yi1hMDdhYTg4ZWZhOTkiLCJuYmYiOjE3NTE3OTk5NDYsImV4cCI6MTc1MTg4NjM0NiwiaWF0IjoxNzUxNzk5OTQ2fQ.z7AU_rVyfnEw4R4tpMmtoi9Qpe28GEINfT_aGjwtwcE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"amount\": 2000,\r\n  \"description\": \"Levantamento em caixa eletronico\",\r\n  \"currency\": \"BRL\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/Wallet/withdraw",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"Wallet",
+								"withdraw"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Transfer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiI2M2E4MGE3MS04Zjg1LTQxMWMtYmM5Yi1hMDdhYTg4ZWZhOTkiLCJuYmYiOjE3NTE3OTk5NDYsImV4cCI6MTc1MTg4NjM0NiwiaWF0IjoxNzUxNzk5OTQ2fQ.z7AU_rVyfnEw4R4tpMmtoi9Qpe28GEINfT_aGjwtwcE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"receiverWalletId\": \"48650a60-7ee4-4233-a592-323571346fe3\",\r\n  \"amount\": 3000,\r\n  \"description\": \"Tranferencia para elisa\",\r\n  \"currency\": \"BRL\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/Wallet/Transfer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"Wallet",
+								"Transfer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Movements",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiI2M2E4MGE3MS04Zjg1LTQxMWMtYmM5Yi1hMDdhYTg4ZWZhOTkiLCJuYmYiOjE3NTE3OTk5NDYsImV4cCI6MTc1MTg4NjM0NiwiaWF0IjoxNzUxNzk5OTQ2fQ.z7AU_rVyfnEw4R4tpMmtoi9Qpe28GEINfT_aGjwtwcE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/Wallet/Movements?currency=BRL&startDate=2025-07-06&endDate=2025-07-10&page=1&pageSize=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"Wallet",
+								"Movements"
+							],
+							"query": [
+								{
+									"key": "currency",
+									"value": "BRL"
+								},
+								{
+									"key": "startDate",
+									"value": "2025-07-06"
+								},
+								{
+									"key": "endDate",
+									"value": "2025-07-10"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CheckBalance",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiI2M2E4MGE3MS04Zjg1LTQxMWMtYmM5Yi1hMDdhYTg4ZWZhOTkiLCJuYmYiOjE3NTE3OTk5NDYsImV4cCI6MTc1MTg4NjM0NiwiaWF0IjoxNzUxNzk5OTQ2fQ.z7AU_rVyfnEw4R4tpMmtoi9Qpe28GEINfT_aGjwtwcE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/Wallet/CheckBalance?currency=BRL",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"Wallet",
+								"CheckBalance"
+							],
+							"query": [
+								{
+									"key": "currency",
+									"value": "BRL"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Disabled",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiI2M2E4MGE3MS04Zjg1LTQxMWMtYmM5Yi1hMDdhYTg4ZWZhOTkiLCJuYmYiOjE3NTE4MDA3MDAsImV4cCI6MTc1MTg4NzEwMCwiaWF0IjoxNzUxODAwNzAwfQ.RYhvzvkZxBQd4h0WPphlnHEscyJHX_tE5zWb-dNxPjk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/Wallet/Disabled?currency=BRL",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"Wallet",
+								"Disabled"
+							],
+							"query": [
+								{
+									"key": "currency",
+									"value": "BRL"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Enabled",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiI2M2E4MGE3MS04Zjg1LTQxMWMtYmM5Yi1hMDdhYTg4ZWZhOTkiLCJuYmYiOjE3NTE4MDA3MDAsImV4cCI6MTc1MTg4NzEwMCwiaWF0IjoxNzUxODAwNzAwfQ.RYhvzvkZxBQd4h0WPphlnHEscyJHX_tE5zWb-dNxPjk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/Wallet/Enabled?currency=BRL",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"Wallet",
+								"Enabled"
+							],
+							"query": [
+								{
+									"key": "currency",
+									"value": "BRL"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
