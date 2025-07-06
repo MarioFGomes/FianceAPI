@@ -185,12 +185,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/api/Wallet/deposit",
-							"protocol": "http",
+							"raw": "https://fianceapi.onrender.com/api/Wallet/deposit",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"fianceapi",
+								"onrender",
+								"com"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"Wallet",
@@ -225,12 +226,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/api/Wallet/withdraw",
-							"protocol": "http",
+							"raw": "https://fianceapi.onrender.com/api/Wallet/withdraw",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"fianceapi",
+								"onrender",
+								"com"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"Wallet",
@@ -265,12 +267,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/api/Wallet/Transfer",
-							"protocol": "http",
+							"raw": "https://fianceapi.onrender.com/api/Wallet/Transfer",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"fianceapi",
+								"onrender",
+								"com"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"Wallet",
@@ -296,12 +299,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/api/Wallet/Movements?currency=BRL&startDate=2025-07-06&endDate=2025-07-10&page=1&pageSize=10",
-							"protocol": "http",
+							"raw": "https://fianceapi.onrender.com/api/Wallet/Movements?currency=BRL&startDate=2025-07-06&endDate=2025-07-10&page=1&pageSize=10",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"fianceapi",
+								"onrender",
+								"com"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"Wallet",
@@ -349,12 +353,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/api/Wallet/CheckBalance?currency=BRL",
-							"protocol": "http",
+							"raw": "https://fianceapi.onrender.com/api/Wallet/CheckBalance?currency=BRL",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"fianceapi",
+								"onrender",
+								"com"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"Wallet",
@@ -386,12 +391,13 @@
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/api/Wallet/Disabled?currency=BRL",
-							"protocol": "http",
+							"raw": "https://fianceapi.onrender.com/api/Wallet/Disabled?currency=BRL",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"fianceapi",
+								"onrender",
+								"com"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"Wallet",
@@ -423,12 +429,13 @@
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/api/Wallet/Enabled?currency=BRL",
-							"protocol": "http",
+							"raw": "https://fianceapi.onrender.com/api/Wallet/Enabled?currency=BRL",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"fianceapi",
+								"onrender",
+								"com"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"Wallet",
