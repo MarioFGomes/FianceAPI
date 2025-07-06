@@ -11,6 +11,12 @@ API para gestão de usuários, carteiras digitais e transações financeiras.
 
 ## Como rodar o projeto
 
+### Usando Endpoint do Render 
+A API se encontra hospetada no render forncendo assim um endereço para o acesso as suas funcionalidades
+Endereço no Render 
+
+https://fianceapi.onrender.com/api
+
 ### Usando Docker Compose
 
 1. Clone o repositório e acesse a pasta do projeto.
@@ -23,7 +29,7 @@ docker-compose up --build
 - A API estará disponível em: `http://localhost:5000` (ajuste a porta conforme necessário)
 - O banco de dados PostgreSQL estará disponível na porta 5432.
 
-# Nota:O banco de dados só ficara disponível na primeira requisição
+### Nota:O banco de dados só ficara disponível na primeira requisição
 
 ### Usando Docker manualmente
 
@@ -44,7 +50,7 @@ docker run -d --name finance_api --link PostgresSQL:db -p 5000:80 finance_api
 2. Configure a string de conexão no `appsettings.Development.json`:
    ```json
    "ConnectionStrings": {
-     "DefaultConnection": "Host=localhost;Port=5432;Database=finance;Username=mariogomes;Password=1qaz2wsx"
+     "DefaultConnection": "Host=db;Port=5432;Database=finance;Username=mariogomes;Password=1qaz2wsx"
    }
    ```
 3. Restaure os pacotes e rode a aplicação:
