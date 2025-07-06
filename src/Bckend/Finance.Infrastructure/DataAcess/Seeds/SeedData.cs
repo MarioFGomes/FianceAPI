@@ -8,7 +8,7 @@ public class SeedData {
     public static void Seed(ModelBuilder modelBuilder) {
         
         var user1 = new User { 
-            Id = Guid.NewGuid(), 
+            Id = Guid.Parse("9dcc55df-91b8-439e-8849-9b00025adee9"), 
             Name = "Elisa Ferreira", 
             Email = "elisa@example.com", 
             Password = BCrypt.Net.BCrypt.HashPassword("123456"), 
@@ -16,7 +16,7 @@ public class SeedData {
         };
 
         var user2 = new User { 
-            Id = Guid.NewGuid(), 
+            Id = Guid.Parse("02d0fdb8-3d1f-4806-9c0a-896a63230641"), 
             Name = "Pedro Castro", 
             Email = "pedro@example.com", 
             Password = BCrypt.Net.BCrypt.HashPassword("123456"), 
@@ -39,7 +39,7 @@ public class SeedData {
             Id = Guid.NewGuid(), 
             UserId = user2.Id, 
             Balance = 1000m,
-            currency = "BRL",
+            currency = "USD",
             CreatedAt = DateTime.UtcNow, 
             UpdatedAt = DateTime.UtcNow 
         };
@@ -75,7 +75,7 @@ public class SeedData {
             WalletId = wallet2.Id,
             MovimentType = MovimentType.CREDIT,
             Amount = 200m,
-            currency = "BRL",
+            currency = "USD",
             TransactionId = transaction.Id,
             Description = "Recebido de João",
             CreatedAt = DateTime.UtcNow
