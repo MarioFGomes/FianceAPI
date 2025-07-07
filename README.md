@@ -11,6 +11,15 @@ API para gestão de usuários, carteiras digitais e transações financeiras.
 
 ## Como rodar o projeto
 
+Para facilitar os testes da API foi feita a hospedagem da mesma no render estando assim On-line e pronta para uso
+para ir fazendo as suas requisições na API basta acessar o endereço logo abaixo 
+pode ter acesso a exemplos de requisições no arquivo `FinanceAPI.postman_collection.json` que se encontra na raiz do projeto
+ou no final deste README.
+
+`https://fianceapi.onrender.com/api`
+
+#### Nota: No plano free do render a API é posta em estado de Sleep depois de 5 minutos em receber requesições e volta a estar up depois de receber alguma requesição
+
 ### Usando Docker Compose
 
 1. Clone o repositório e acesse a pasta do projeto.
@@ -19,11 +28,18 @@ API para gestão de usuários, carteiras digitais e transações financeiras.
 ```bash
 docker-compose up --build
 ```
+or 
+Cria um arquivo com o nome .env e passa todas as variaveis de ambiente solicitadas no arquivo docker-compose de produção
+e depois é só rodar
+
+```bash
+docker compose -f docker-compose.prod.yml up -d
+```
 
 - A API estará disponível em: `http://localhost:5000` (ajuste a porta conforme necessário)
 - O banco de dados PostgreSQL estará disponível na porta 5432.
 
-# Nota:O banco de dados só ficara disponível na primeira requisição
+### Nota:O banco de dados só ficara disponível na primeira requisição
 
 ### Usando Docker manualmente
 

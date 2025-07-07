@@ -1,0 +1,36 @@
+services:
+  db:
+    image: bitnami/postgresql:latest
+    container_name: finance-db
+    restart: always
+    environment:
+      - POSTGRESQL_USERNAME=${POSTGRESQL_USERNAME}
+      - POSTGRESQL_PASSWORD=${POSTGRESQL_PASSWORD}
+      - POSTGRESQL_DATABASE=${POSTGRESQL_DATABASE}
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/bitnami/postgresql
+    networks:
+      - finance-network
+
+  api:
+    image: mariogomes333/financeapi:latest
+    container_name: finance-api
+    depends_on:
+      - db
+    restart: always
+    environment:
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+      - ConnectionStrings__DefaultConnection=${DEFAULT_CONNECTION}
+    ports:
+      - "5000:80"
+    networks:
+      - finance-network
+
+volumes:
+  db_data:
+
+networks:
+  finance-network:
+    driver: bridge
