@@ -13,7 +13,9 @@ API para gestão de usuários, carteiras digitais e transações financeiras.
 
 ### Usando Endpoint do Render 
 A API se encontra hospetada no render forncendo assim um endereço para o acesso as suas funcionalidades
-Endereço no Render 
+Endereço no Render consulte o documento `FinanceAPI.postman_collection.json` para exemplos de requesição
+
+### Nota: No Render na versão Free a API fica em estado inativo depois de 5 minutos sem requisições, para voltar a ativar a API precisa fazer uma requisição em vai levar 30 segundo até a API voltar a estar Up
 
 https://fianceapi.onrender.com/api
 
